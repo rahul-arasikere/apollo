@@ -248,14 +248,14 @@ function run_bazel_build() {
   info "${TAB}Disabled:      ${YELLOW}${disabled_targets}${NO_COLOR}"
 
   local job_args="--jobs=$(nproc) --local_ram_resources=HOST_RAM*0.7"
-  bazel build ${CMDLINE_OPTIONS} ${job_args} -- ${formatted_targets}
+  bazel build --copt="-Wno-sign-compare" ${CMDLINE_OPTIONS} ${job_args} -- ${formatted_targets}
 }
 
 function main() {
-  if ! "${APOLLO_IN_DOCKER}"; then
-    error "The build operation must be run from within docker container"
-    exit 1
-  fi
+  # if ! "${APOLLO_IN_DOCKER}"; then
+  #   error "The build operation must be run from within docker container"
+  #   exit 1
+  # fi
   parse_cmdline_arguments "$@"
   determine_cpu_or_gpu_build
 
