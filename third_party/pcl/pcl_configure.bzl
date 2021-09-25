@@ -99,7 +99,7 @@ def _pcl_match_version(repository_ctx, sysroot_dir = None):
     #     return None
 
     # version = _pcl_version_from_incl_path(incl_dir)
-    return ("1.10", "/opt/apollo/sysroot/include", "/opt/apollo/sysroot/lib")
+    return ("1.10", "/opt/apollo/sysroot/include/pcl-1.10", "/opt/apollo/sysroot/lib")
 
 def _pcl_configure_impl(repository_ctx):
     # Room for _create_remote_pcl_repository
