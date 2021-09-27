@@ -17,21 +17,21 @@
 .globl ctx_swap
 .type  ctx_swap, @function
 ctx_swap:
-      pushq %rdi
-      pushq %r12
-      pushq %r13
-      pushq %r14
-      pushq %r15
-      pushq %rbx
-      pushq %rbp
-      movq %rsp, (%rdi)
+      pushw %rdi
+      pushw %r12
+      pushw %r13
+      pushw %r14
+      pushw %r15
+      pushw %rbx
+      pushw %rbp
+      movw %rsp, (%rdi)
 
-      movq (%rsi), %rsp
-      popq %rbp
-      popq %rbx
-      popq %r15
-      popq %r14
-      popq %r13
-      popq %r12
-      popq %rdi
+      movw (%rsi), %rsp
+      popw %rbp
+      popw %rbx
+      popw %r15
+      popw %r14
+      popw %r13
+      popw %r12
+      popw %rdi
       ret
