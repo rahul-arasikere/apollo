@@ -9,5 +9,5 @@ def repo():
     native.new_local_repository(
         name = "ffmpeg",
         build_file = clean_dep("//third_party/ffmpeg:ffmpeg.BUILD"),
-        path = "/opt/apollo/sysroot/include",
+        path = "/usr/local/include",
     )

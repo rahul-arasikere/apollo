@@ -13,7 +13,7 @@ def repo():
     # native.new_local_repository(
     #    name = "com_google_benchmark",
     #    build_file = clean_dep("//third_party/benchmark:benchmark.BUILD"),
-    #    path = "/opt/apollo/sysroot/include",
+    #    path = "/usr/local/include",
     # )
     http_archive(
         name = "com_google_benchmark",

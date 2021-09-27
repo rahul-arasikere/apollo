@@ -9,5 +9,5 @@ def repo():
     native.new_local_repository(
         name = "boost",
         build_file = clean_dep("//third_party/boost:boost.BUILD"),
-        path = "/opt/apollo/sysroot/include",
+        path = "/usr/local/include",
     )

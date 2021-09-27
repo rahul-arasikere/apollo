@@ -11,7 +11,7 @@ cc_library(
     ],
     linkopts = [
         # "-L/usr/local/lib",
-        "-L/opt/apollo/sysroot/lib",
+        "-L/usr/local/lib",
         "-lopenh264",
     ],
     linkstatic = False,

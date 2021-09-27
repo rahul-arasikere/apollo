@@ -73,33 +73,33 @@ def _create_local_pcl_repository(repository_ctx):
     })
 
 def _pcl_match_version(repository_ctx, sysroot_dir = None):
-    # cmd = """ldconfig -p | awk -F'=>' '/libpcl_common.so$/ {print $2}'"""
-    # result = execute(
-    #     repository_ctx,
-    #     ["sh", "-c", cmd],
-    #     empty_stdout_fine = False,
-    # ).stdout.strip()
+    cmd = """ldconfig -p | awk -F'=>' '/libpcl_common.so$/ {print $2}'"""
+    result = execute(
+        repository_ctx,
+        ["sh", "-c", cmd],
+        empty_stdout_fine = False,
+    ).stdout.strip()
 
-    # solib = result.rstrip("\n")
-    # lib_path = dirname(solib)
-    # prefix = solib[:solib.rfind("/lib/")]
-    # prefix_dirs = ["/usr", "/usr/local"]
-    # if sysroot_dir:
-    #     prefix_dirs.append(sysroot_dir)
-    # if prefix not in prefix_dirs:
-    #     return None
+    solib = result.rstrip("\n")
+    lib_path = dirname(solib)
+    prefix = solib[:solib.rfind("/lib/")]
+    prefix_dirs = ["/usr", "/usr/local"]
+    if sysroot_dir:
+        prefix_dirs.append(sysroot_dir)
+    if prefix not in prefix_dirs:
+        return None
 
-    # cmd = """ls -d {}/include/pcl-* 2>/dev/null""".format(prefix)
-    # incl_dir = execute(
-    #     repository_ctx,
-    #     ["sh", "-c", cmd],
-    #     empty_stdout_fine = True,
-    # ).stdout.strip()
-    # if not incl_dir:
-    #     return None
+    cmd = """ls -d {}/include/pcl-* 2>/dev/null""".format(prefix)
+    incl_dir = execute(
+        repository_ctx,
+        ["sh", "-c", cmd],
+        empty_stdout_fine = True,
+    ).stdout.strip()
+    if not incl_dir:
+        return None
 
-    # version = _pcl_version_from_incl_path(incl_dir)
-    return ("1.10", "/opt/apollo/sysroot/include/pcl-1.10", "/opt/apollo/sysroot/lib")
+    version = _pcl_version_from_incl_path(incl_dir)
+    return (version, incl_dir, lib_path)
 
 def _pcl_configure_impl(repository_ctx):
     # Room for _create_remote_pcl_repository

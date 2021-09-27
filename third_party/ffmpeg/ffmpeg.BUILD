@@ -8,7 +8,7 @@ cc_library(
     name = "avcodec",
     includes = ["."],
     linkopts = [
-        "-L/opt/apollo/sysroot/lib",
+        "-L/usr/local/lib",
         "-lavcodec",
     ],
 )
@@ -17,7 +17,7 @@ cc_library(
     name = "avformat",
     includes = ["."],
     linkopts = [
-        "-L/opt/apollo/sysroot/lib",
+        "-L/usr/local/lib",
         "-lavformat",
     ],
 )
@@ -26,7 +26,7 @@ cc_library(
     name = "swscale",
     includes = ["."],
     linkopts = [
-        "-L/opt/apollo/sysroot/lib",
+        "-L/usr/local/lib",
         "-lswscale",
     ],
 )
@@ -35,7 +35,7 @@ cc_library(
     name = "avutil",
     includes = ["."],
     linkopts = [
-        "-L/opt/apollo/sysroot/lib",
+        "-L/usr/local/lib",
         "-lavutil",
     ],
 )

@@ -9,7 +9,7 @@ cc_library(
     name = "boost",
     includes = ["."],
     linkopts = [
-        "-L/opt/apollo/sysroot/lib",
+        "-L/usr/local/lib",
         "-lboost_filesystem",
         "-lboost_program_options",
         "-lboost_regex",

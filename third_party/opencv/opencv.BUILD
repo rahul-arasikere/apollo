@@ -11,7 +11,7 @@ cc_library(
     name = "core",
     includes = ["."],
     linkopts = [
-        "-L/opt/apollo/sysroot/lib",
+        "-L/usr/local/lib",
         "-lopencv_core",
     ],
 )
@@ -20,7 +20,7 @@ cc_library(
     name = "highgui",
     includes = ["."],
     linkopts = [
-        "-L/opt/apollo/sysroot/lib",
+        "-L/usr/local/lib",
         "-lopencv_highgui",
     ],
     # Note(storypku): dependency relation derived from ldd
@@ -34,7 +34,7 @@ cc_library(
     name = "imgproc",
     includes = ["."],
     linkopts = [
-        "-L/opt/apollo/sysroot/lib",
+        "-L/usr/local/lib",
         "-lopencv_imgproc",
     ],
     deps = [
@@ -46,7 +46,7 @@ cc_library(
     name = "imgcodecs",
     includes = ["."],
     linkopts = [
-        "-L/opt/apollo/sysroot/lib",
+        "-L/usr/local/lib",
         "-lopencv_imgcodecs",
     ],
     deps = [
