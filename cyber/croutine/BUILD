@@ -46,6 +46,9 @@ cc_library(
     name = "swap",
     srcs = select(
         {
+	    "@platforms//cpu:x86_32": [
+	        "detail/swap_x86_32.S",
+	    ],
             "@platforms//cpu:x86_64": [
                 "detail/swap_x86_64.S",
             ],
@@ -53,7 +56,7 @@ cc_library(
                 "detail/swap_aarch64.S",
             ],
         },
-        no_match_error = "Please Build with a Linux aarch64 or x86_64 platform",
+        no_match_error = "Please Build with a Linux aarch64, x86_32 or x86_64 platform",
     ),
 )
 
