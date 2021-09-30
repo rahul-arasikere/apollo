@@ -17,6 +17,25 @@
 .globl ctx_swap
 .type  ctx_swap, @function
 ctx_swap:
+#if defined(ARCH == "x86_32")
+      pushw %edi
+      pushw %e12
+      pushw %e13
+      pushw %e14
+      pushw %e15
+      pushw %ebx
+      pushw %ebp
+      movw %esp, (%edi)
+
+      movw (%esi), %esp
+      popw %ebp
+      popw %ebx
+      popw %e15
+      popw %e14
+      popw %e13
+      popw %e12
+      popw %edi
+#else
       pushq %rdi
       pushq %r12
       pushq %r13
@@ -34,4 +53,5 @@ ctx_swap:
       popq %r13
       popq %r12
       popq %rdi
+#endif
       ret
